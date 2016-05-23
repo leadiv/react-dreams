@@ -1,5 +1,18 @@
 # React Dreams
-A playground for working with React components.
+I am using this repository to learn about universal javascript and how it works
+with React. Also working on getting the development experience and production
+expreience right.
+
+## Installing
+```
+npm install
+```
+
+## Running
+
+```
+npm start
+```
 
 ## Sources
 https://github.com/glenjamin/ultimate-hot-reloading-example

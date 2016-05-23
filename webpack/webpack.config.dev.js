@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
     devtool: 'eval',
@@ -13,23 +14,27 @@ module.exports = {
     },
     output: {
         path: path.join(__dirname, '../dist/public/js'),
-        filename: '[name].bundle.js',
-        publicPath: '/js'
-    }/*,
+        filename: 'js/[name].bundle.js',
+        publicPath: '/'
+    },
     module: {
         loaders: [
             {
-                test: /\.js$/,
-                exclude: /(node_modules)/,
-                loader: 'babel',
-                query: {
-                    plugins: [ 'transform-object-assign' ],
-                    presets: [ 'react', 'es2015', 'stage-0' ]
-                }
+                test: /\.scss$/,
+                exclude: /node_modules/,
+                loader: ExtractTextPlugin.extract('style', 'css!sass')
             }
         ]
-    }*/,
+    },
     plugins: [
-        new webpack.HotModuleReplacementPlugin()
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.DefinePlugin({
+            'process.env': {
+                'BROWSER': JSON.stringify(true)
+            }
+        }),
+        new ExtractTextPlugin('css/[name].bundle.css', {
+            disable: false
+        })
     ]
 };
