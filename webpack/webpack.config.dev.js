@@ -7,6 +7,7 @@ module.exports = {
     context: path.join(__dirname, '../dist'),
     entry: {
         index: [
+            'react-hot-loader/patch',
             'webpack/hot/dev-server',
             'webpack-hot-middleware/client?reload=true',
             path.join(__dirname, '../dist/client/index.js')
@@ -34,7 +35,7 @@ module.exports = {
             }
         }),
         new ExtractTextPlugin('css/[name].bundle.css', {
-            disable: false
-        })
+            disable: true
+        }
     ]
 };

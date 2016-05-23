@@ -6,8 +6,26 @@ if (process.env.BROWSER) {
 }
 
 class App extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            count: 0
+        }
+        this.increment = this.increment.bind(this);
+    }
+
+    increment() {
+        this.setState({
+            count: this.state.count - 1
+        });
+    }
+
+    componentDidMount() {
+        setInterval(this.increment, 1000);
+    }
+
     render () {
-        return (<span className="app">The App content starts here.</span>);
+        return (<span className="app">The App has started counting here: <span className="count">{this.state.count}</span>. And now it keeps state.</span>);
     } 
 }
 
