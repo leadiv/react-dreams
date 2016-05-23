@@ -32,8 +32,8 @@
     "watch": "parallelshell -v \"npm run watch:transpile\" \"npm run watch:resources\"",
     "watch:transpile": "babel src --watch --out-dir dist",
     "watch:resources": "nodemon --ext scss,css,jpg,gif,svg --exec \"rsync -a --exclude='*.js' ./src/ ./dist\"",
-    "start:server": "node dist/server",
-    "start": "npm run clean && npm run build && parallelshell -v \"npm run start:server\" \"npm run watch\""
+    "start:dev-server": "NODE_ENV=development node dist/server",
+    "start": "npm run clean && npm run build && parallelshell -v \"npm run start:dev-server\" \"npm run watch\""
   },
   "devDependencies": {
     "babel-cli": "6.9.0",
