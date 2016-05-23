@@ -1,7 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 
 const propTypes = {
-    children: PropTypes.node
+    children: PropTypes.node,
+    isProduction: PropTypes.bool
 };
 
 class ServerChrome extends Component {
@@ -10,7 +11,8 @@ class ServerChrome extends Component {
             <html>
                 <head>
                     <title>React Dreams</title>
-                    <link rel="stylesheet" href="css/index.bundle.css" />
+                    {this.props.isProduction &&
+                        <link rel="stylesheet" href="css/index.bundle.css" />}
                 </head>
                 <body>
                     <div id="mount">
