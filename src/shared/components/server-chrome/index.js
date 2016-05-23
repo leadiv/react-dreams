@@ -10,6 +10,7 @@ class ServerChrome extends Component {
             <html>
                 <head>
                     <title>React Dreams</title>
+                    <link rel="stylesheet" href="css/index.bundle.css" />
                 </head>
                 <body>
                     <div id="mount">
